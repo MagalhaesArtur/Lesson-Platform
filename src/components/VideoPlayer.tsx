@@ -5,12 +5,11 @@ import {
   ArrowRight,
   Image,
 } from "phosphor-react";
-import { gql, useQuery } from "@apollo/client";
 import { DefaultUi, Player, Youtube } from "@vime/react";
 
 import "@vime/core/themes/default.css";
-import { useEffect, useState } from "react";
 import { useGetLessonBySlugQuery } from "../graphql/generated";
+import { useEffect, useState } from "react";
 
 function VideoPlayer(props: { slug: string }) {
   const { data } = useGetLessonBySlugQuery({
@@ -18,6 +17,7 @@ function VideoPlayer(props: { slug: string }) {
       slug: props.slug,
     },
   });
+  const [video, setVideo] = useState("");
 
   if (!data || !data.lesson) {
     return <div className="flex-1">carregando...</div>;
@@ -44,7 +44,7 @@ function VideoPlayer(props: { slug: string }) {
               {data.lesson.teacher && (
                 <div className="flex gap-3 mt-3">
                   <img
-                    className="w-[70px] border-[2px] border-white rounded-full"
+                    className="w-[90px] border-[2px] border-white rounded-ball"
                     src={data?.lesson.teacher.avatarURL}
                     alt=""
                   />

@@ -2,6 +2,7 @@ import { isPast, format } from "date-fns";
 import { CheckCircle, Lock } from "phosphor-react";
 import ptBR from "date-fns/locale/pt-BR";
 import { Link, useParams } from "react-router-dom";
+import { Time } from "@vime/react";
 
 interface LessonProps {
   title: string;
@@ -23,7 +24,15 @@ function Lesson(props: LessonProps) {
   const activeLesson = slug === props.slug;
 
   return (
-    <Link className="w-[100%] group" to={`/event/lesson/${props.slug}`}>
+    <Link
+      className="w-[100%] group"
+      onClick={() => {
+        setTimeout(() => {
+          location.reload();
+        }, 500);
+      }}
+      to={`/event/lesson/${props.slug}`}
+    >
       <span className="text-gray-300">{dateFormatted}</span>
       <div
         className={`border w-[100%] border-gray-600 group-hover:border-green-500 transition-all p-4 rounded-md mt-1 ${

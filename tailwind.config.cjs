@@ -2,6 +2,9 @@
 module.exports = {
   content: ["./src/**/*.tsx"],
   theme: {
+    borderRadius: {
+      ball: "50%",
+    },
     extend: {
       fontFamily: {
         sans: "Roboto, sans-serif",
