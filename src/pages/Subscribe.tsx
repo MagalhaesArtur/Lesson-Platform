@@ -60,7 +60,7 @@ function Subscribe() {
               }}
               type="text"
               placeholder="Digite seu nome completo"
-              className="bg-gray-900 rounded px-5 h-14"
+              className="bg-gray-900 rounded px-5 h-14 "
             />
             <input
               onChange={(e) => {
