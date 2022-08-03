@@ -7,7 +7,7 @@ interface LessonProps {
   title: string;
   availableAt: Date;
   slug: string;
-  type: "live" | "pratice";
+  type: "live" | "class";
 }
 
 function Lesson(props: LessonProps) {

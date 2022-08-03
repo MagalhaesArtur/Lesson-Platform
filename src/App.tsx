@@ -7,7 +7,7 @@ function App() {
     <div>
       <Router>
         <Routes>
-          <Route path="/home" element={<Subscribe />} />
+          <Route path="/" element={<Subscribe />} />
 
           <Route path="/event" element={<LessonPlatform />} />
           <Route path="/event/lesson/:slug" element={<LessonPlatform />} />

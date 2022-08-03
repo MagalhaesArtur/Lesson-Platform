@@ -10,46 +10,16 @@ import { DefaultUi, Player, Youtube } from "@vime/react";
 
 import "@vime/core/themes/default.css";
 import { useEffect, useState } from "react";
-
-const GET_LESSON_BY_SLUG = gql`
-  query getLessonBySlug($slug: String) {
-    lesson(where: { slug: $slug }) {
-      description
-      title
-      videoId
-      teacher {
-        bio
-        avatarURL
-        name
-      }
-    }
-  }
-`;
-
-interface getLessonBySlugQuery {
-  lesson: {
-    title: string;
-    videoId: string;
-    description: string;
-    teacher: {
-      bio: string;
-      avatarURL: string;
-      name: string;
-    };
-  };
-}
+import { useGetLessonBySlugQuery } from "../graphql/generated";
 
 function VideoPlayer(props: { slug: string }) {
-  const { data } = useQuery<getLessonBySlugQuery>(GET_LESSON_BY_SLUG, {
+  const { data } = useGetLessonBySlugQuery({
     variables: {
       slug: props.slug,
     },
   });
 
-  const [idVideo, setIdVideo] = useState(data?.lesson.videoId);
-
-  console.log(data?.lesson.videoId);
-  if (!data) {
+  if (!data || !data.lesson) {
     return <div className="flex-1">carregando...</div>;
   } else {
     return (
@@ -71,21 +41,23 @@ function VideoPlayer(props: { slug: string }) {
                 {data?.lesson.description}
               </p>
 
-              <div className="flex gap-3 mt-3">
-                <img
-                  className="w-[70px] border-[2px] border-white rounded-full"
-                  src={data?.lesson.teacher.avatarURL}
-                  alt=""
-                />
-                <div className="flex flex-col gap-2">
-                  <p className="text-xl font-bold">
-                    {data?.lesson.teacher.name}
-                  </p>
-                  <p className="text-base text-gray-200 ">
-                    {data?.lesson.teacher.bio}
-                  </p>
+              {data.lesson.teacher && (
+                <div className="flex gap-3 mt-3">
+                  <img
+                    className="w-[70px] border-[2px] border-white rounded-full"
+                    src={data?.lesson.teacher.avatarURL}
+                    alt=""
+                  />
+                  <div className="flex flex-col gap-2">
+                    <p className="text-xl font-bold">
+                      {data?.lesson.teacher.name}
+                    </p>
+                    <p className="text-base text-gray-200 ">
+                      {data?.lesson.teacher.bio}
+                    </p>
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
             <div className="flex flex-col gap-2">
               <a className="flex justify-center items-center gap-2 rounded-md border-2 border-green-500 font-bold bg-green-500 p-4 hover:bg-gray-200 hover:text-green-500 transition-all hover:cursor-pointer">
