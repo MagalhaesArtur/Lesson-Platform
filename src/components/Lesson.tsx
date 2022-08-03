@@ -1,7 +1,7 @@
 import { isPast, format } from "date-fns";
 import { CheckCircle, Lock } from "phosphor-react";
 import ptBR from "date-fns/locale/pt-BR";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 interface LessonProps {
   title: string;
@@ -18,13 +18,25 @@ function Lesson(props: LessonProps) {
     { locale: ptBR }
   );
 
+  const { slug } = useParams<{ slug: string }>();
+
+  const activeLesson = slug === props.slug;
+
   return (
     <Link className="w-[100%] group" to={`/event/lesson/${props.slug}`}>
       <span className="text-gray-300">{dateFormatted}</span>
-      <div className="border w-[100%] border-gray-600 group-hover:border-green-500 transition-all p-4 rounded-md mt-1">
+      <div
+        className={`border w-[100%] border-gray-600 group-hover:border-green-500 transition-all p-4 rounded-md mt-1 ${
+          activeLesson ? "bg-green-500" : ""
+        }`}
+      >
         <header className="flex justify-between">
           {isLessonAvailable ? (
-            <span className="text-sm flex justify-center items-center  text-blue-500 font-medium">
+            <span
+              className={`text-sm flex justify-center items-center  text-blue-500 font-medium ${
+                activeLesson ? "text-white" : ""
+              }`}
+            >
               <CheckCircle size={20} className="mr-1" />
               Conteúdo Liberado
             </span>
@@ -35,11 +47,21 @@ function Lesson(props: LessonProps) {
             </span>
           )}
 
-          <span className="text-xs rounded px-2 py-[2px] text-white border border-green-300 font-bold">
+          <span
+            className={`text-xs rounded px-2 py-[2px] text-white border  font-bold ${
+              activeLesson ? "border-white" : "border-green-300 "
+            }`}
+          >
             {props.type === "live" ? "AO VIVO" : "AULA PRÁTICA"}
           </span>
         </header>
-        <strong className="text-gray-200 mt-5 block">{props.title}</strong>
+        <strong
+          className={` mt-5 block ${
+            activeLesson ? "text-white" : "text-gray-200 "
+          }`}
+        >
+          {props.title}
+        </strong>
       </div>
     </Link>
   );
