@@ -14,7 +14,7 @@ function Sidebar(props: sidebarProps) {
       className={
         props.open
           ? `w-[100%] border-gray-600 border-l md:flex flex-col    items-center bg-gray-700 p-6`
-          : "hidden"
+          : "hidden md:w-[348px] md:border-gray-600 md:border-l md:flex md:flex-col md:items-center md:bg-gray-700 md:p-6 "
       }
     >
       <div className="text-xl mb-4 font-bold">Cronograma das Aulas</div>
