@@ -8,7 +8,7 @@ interface sidebarProps {
 
 function Header(props: sidebarProps) {
   return (
-    <div className="w-full bg-gray-700 flex md:justify-center justify-around text-center items-center py-5 border-b-2 border-gray-500">
+    <div className="w-full h-[8vh] bg-gray-700 flex md:justify-center justify-around text-center items-center py-5 border-b-2 border-gray-500">
       <Icon />
 
       {props.open ? (

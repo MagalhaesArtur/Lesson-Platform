@@ -25,7 +25,7 @@ function Lesson(props: LessonProps) {
 
   return (
     <Link
-      className="w-[100%] group"
+      className="w-[100%] group "
       onClick={() => {
         setTimeout(() => {
           location.reload();
