@@ -27,17 +27,17 @@ function Subscribe() {
   }
   return (
     <div className="min-h-screen bg-blur bg-no-repeat bg-cover flex flex-col items-center">
-      <div className="w-full max-w-[1100px] flex items-center justify-between mt-20 mx-auto">
-        <div className="max-w-[640px]">
+      <div className="w-full max-w-[1100px] flex flex-col md:flex-row items-center justify-between mt-20 mx-auto">
+        <div className="flex flex-col justify-center items-center max-w-[640px]">
           <Icon />
 
-          <h1 className="mt-8 text-[2.5rem] leading-tight">
+          <h1 className="mt-8 md:text-[2.5rem] p-4 text-[2rem] text-center leading-tight">
             Construa um{" "}
-            <strong className="text-blue-500">aplicação completa</strong> , do
-            zero, <strong className="text-blue-500">com React </strong>.
+            <strong className="text-blue-500">aplicação completa</strong>, do
+            zero, <strong className="text-blue-500">com React </strong>
           </h1>
 
-          <p className="mt-4 text-gray-200 leading-relaxed">
+          <p className="mt-4 text-gray-200 text-center p-4 mb-4 text-sm leading-relaxed">
             Em apenas uma semana você vai dominar na prática uma das tecnologias
             mais utilizadas e com alta demanda para acessar as melhores
             oportunidades do mercado.
