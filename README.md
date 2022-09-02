@@ -12,15 +12,11 @@ Link: [https://lesson-platform.vercel.app/](https://lesson-platform.vercel.app/)
 ## Fotos da aplicação:
 
 <div>
-    
     <h3>Mobile App:</h3>
-    <img src="./src/assets/gif1.gif" width="50%" alt="">
+    <img align="center" src="./src/assets/gif1.gif" width="50%" alt="">
     <h3>Web APP:</h3>
     <img src="./src/assets/gif.gif" width="99%" alt="">
-    
-    
-       
-   
+ 
 </div>
 
 ## Tecnologias Utilizadas:
