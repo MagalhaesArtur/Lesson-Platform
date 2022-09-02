@@ -16,7 +16,7 @@ Link: [https://lesson-platform.vercel.app/](https://lesson-platform.vercel.app/)
     <img src="./src/assets/gif.gif" width="99%" alt="">
     
     <hr/>
-     <h3>Mobile App:</h3>
+    <h3>Mobile App:</h3>
     <img src="./src/assets/gif1.gif" width="99%" alt="">
         
    
